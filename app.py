@@ -89,7 +89,7 @@ if st.button("翻译文本转语音"):
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
     if display_output_text:
-        st.markdown(f"## 输出的翻译文本:")
+        st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
         st.write(f" {output_text}")
 
 def remove_files(n):
