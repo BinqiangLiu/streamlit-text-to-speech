@@ -4,7 +4,6 @@ import time
 import glob
 import os
 
-
 from gtts import gTTS
 from googletrans import Translator
 
