@@ -13,7 +13,6 @@ except:
     pass
 st.title("文字/文本转语音App-Streamlit")
 st.markdown(f"## 【输入的文本中不可以包括符号【/】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
-#st.markdown(f"## 【输入的文本中不可以包括符号"/"，因为涉及【f】 " temp/{my_file_name}.mp3 文件命名】")
 translator = Translator()
 
 text = st.text_input("输入需要翻译的内容")
