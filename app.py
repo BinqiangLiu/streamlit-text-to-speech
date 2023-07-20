@@ -11,7 +11,7 @@ try:
     os.mkdir("temp")
 except:
     pass
-st.title("文字/文本转语音App-Streamlit")
+st.title("文字/文本转语音App-Streamlit|#更新了requirements.txt之后")
 translator = Translator()
 
 text = st.text_input("输入需要翻译的内容")
