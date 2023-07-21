@@ -93,6 +93,10 @@ if st.button("翻译文本转语音"):
         st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
         st.write(f" {output_text}")
 
+#新增一个按钮测试直接播放语音文件
+if st.button("直接播放上传语音文件"):
+    st.audio("./audiofiles/xxxzyj.mp3")
+
 def remove_files(n):
     mp3_files = glob.glob("temp/*mp3")
     if len(mp3_files) != 0:
