@@ -22,8 +22,10 @@ in_lang = st.selectbox(
 )
 if in_lang == "English":
     input_language = "en"
-elif in_lang == "Chinese":
+elif in_lang == "Chinese Simplified":
     input_language = "zh-cn"
+elif in_lang == "Chinese Traditional":
+    input_language = "zh-TW"
 elif in_lang == "Japanese":
     input_language = "ja"
 
@@ -33,9 +35,9 @@ out_lang = st.selectbox(
 )
 if out_lang == "English":
     output_language = "en"
-elif out_lang == "Chinese":
+elif out_lang == "Chinese Simplified":
     output_language = "zh-CN"
-elif out_lang == "Chinese":
+elif out_lang == "Chinese Traditional":
     output_language = "zh-TW"
 elif out_lang == "Japanese":
     output_language = "ja"
