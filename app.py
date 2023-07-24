@@ -35,6 +35,8 @@ if out_lang == "English":
     output_language = "en"
 elif out_lang == "Chinese":
     output_language = "zh-CN"
+elif out_lang == "Chinese":
+    output_language = "zh-TW"
 elif out_lang == "Japanese":
     output_language = "ja"
 
