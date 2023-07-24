@@ -34,7 +34,7 @@ out_lang = st.selectbox(
 if out_lang == "English":
     output_language = "en"
 elif out_lang == "Chinese":
-    output_language = "zh-cn"
+    output_language = "zh-CN"
 elif out_lang == "Japanese":
     output_language = "ja"
 
