@@ -31,7 +31,7 @@ elif in_lang == "Japanese":
 
 out_lang = st.selectbox(
     "请选择输出语言",
-    ("English", "Hindi", "Bengali", "korean", "Chinese", "Japanese"),
+    ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
 )
 if out_lang == "English":
     output_language = "en"
