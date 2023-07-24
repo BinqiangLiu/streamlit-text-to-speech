@@ -18,7 +18,7 @@ translator = Translator()
 text = st.text_input("输入需要翻译的内容")
 in_lang = st.selectbox(
     "请选择输入语言",
-    ("English", "Hindi", "Bengali", "korean", "Chinese", "Japanese"),
+    ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
 )
 if in_lang == "English":
     input_language = "en"
