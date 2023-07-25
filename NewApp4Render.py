@@ -89,19 +89,19 @@ def text_to_speech(input_language, output_language, text):
 #    output_text = text_to_speech(input_language, output_language, text)
 #    st.write(f" {output_text}")
 #    st.write("---")
-             
-display_output_text = st.checkbox("听语音（并显示翻译结果）")
-if display_output_text:
+
+display_output_text = st.checkbox("听语音（并显示翻译结果）")             
+if st.write("翻译结果"):
+    output_text = text_to_speech(input_language, output_language, text)
+    st.write(f" {output_text}") 
+elif display_output_text:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
-    st.write(f" {output_text}")        
-elif st.write("翻译结果"):
-    output_text = text_to_speech(input_language, output_language, text)
-    st.write(f" {output_text}")    
+    st.write(f" {output_text}")     
 
 #os.remove(f"translationaudio.mp3")
 
