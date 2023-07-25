@@ -45,12 +45,12 @@ in_lang = st.selectbox(
     "请选择待翻译文本的语言",
     ("Chinese", "English", "German", "French", "Japanese", "Korean"),
 )
-if in_lang == "en":
-    input_language = ""
+if in_lang == "Chinese":
+     input_language = "zh-CN"
 #elif in_lang == "Chinese Traditional":
 #    input_language = "zh-TW"
-elif in_lang == "Chinese":
-    input_language = "zh-CN"
+elif in_lang == "English":
+    input_language = "en"
 elif in_lang == "German":
     input_language = "de"
 elif in_lang == "French":
@@ -127,7 +127,7 @@ else:
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
 
-display_output_text = st.checkbox("听语音（并显示翻译结果）")
+display_output_text = st.checkbox("语音播放翻译结果）")
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
@@ -136,7 +136,7 @@ elif display_output_text:
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
-    st.write(f" {output_text}")
+#    st.write(f" {output_text}")
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
