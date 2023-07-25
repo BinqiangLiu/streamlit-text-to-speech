@@ -1,4 +1,22 @@
 import streamlit as st
+# Add custom CSS style to center the title
+st.markdown(
+    """
+    <style>
+    /* Center the title */
+    .title-wrapper {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Set the title and other configurations
+st.title("易翻译 | Easy Translation")
+
+
+
 import os
 import time
 import glob
@@ -19,21 +37,20 @@ st.set_page_config(
     layout="centered",  # You can set the layout to "wide" or "centered"
 )
 
-# Add custom CSS style to center the title
-st.markdown(
-    """
-    <style>
-    /* Center the title */
-    .title-wrapper {
-        text-align: center;
+# HTML and JavaScript code to handle clearing the prefilled content
+clear_prefilled_js = """
+<script>
+function clearPrefilled() {
+    var element = document.getElementById("inputArea");
+    if (element.value == "Prefilled content...") {
+        element.value = "";
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+}
+</script>
+"""
 
-# Set the title and other configurations
-st.title("易翻译 | Easy Translation")
+# Display the HTML/JS code
+st.markdown(clear_prefilled_js, unsafe_allow_html=True)
 
 st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
@@ -82,16 +99,23 @@ elif out_lang == "Korea":
 
 st.write("---")
 
+# Create the text_input widget with pre-filled text
 # Pre-filled text for the text_input widget
 pre_filled_text = "请在此输入需要翻译的内容/Enter contents to be translated here."
 
-# Create the text_input widget with pre-filled text
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
+# Text input with pre-filled content
+text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text on_change="clearPrefilled()", key="inputArea")
+#text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
 #text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
+
+#text = st.text_input("Enter something:", value=prefilled_text, on_change="clearPrefilled()", key="inputArea")
+# Continue with the rest of the app logic
+#if user_input and user_input != "Prefilled content...":
 
 def text_to_speech(input_language, output_language, text):
     if text is None:
         return "请在上方输入框中输入需要翻译的内容"  # Return an empty string if text is None
+        st.stop()
     else:
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
@@ -127,7 +151,7 @@ else:
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
 
-display_output_text = st.checkbox("语音播放翻译结果）")
+display_output_text = st.checkbox("语音播放翻译结果")
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
