@@ -94,13 +94,15 @@ def text_to_speech(input_language, output_language, text, tld):
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
 st.write("---")
-while st.button("开始翻译并显示"): 
+while st.button("开始翻译并显示", key="button1")
+#while st.button("开始翻译并显示"): 
     result, output_text = text_to_speech(input_language, output_language, text, tld)
     audio_file = open(f"temp/{result}.mp3", "rb")
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
     st.write(f" {output_text}")
     st.write("---")
-    if st.button("语音播放翻译内容"):
+    if st.button("语音播放翻译内容", key="button2")
+#    if st.button("语音播放翻译内容"):
 #下面的open这行代码必须在这个if框架内，否则st.audio点击后就消失了！之前显示的翻译内容也会消失！        
 #result, output_text = text_to_speech(input_language, output_language, text, tld)
 #        audio_file = open(f"temp/{result}.mp3", "rb")        
