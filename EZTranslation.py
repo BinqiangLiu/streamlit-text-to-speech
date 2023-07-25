@@ -82,7 +82,12 @@ elif out_lang == "Korea":
 
 st.write("---")
 
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
+# Pre-filled text for the text_input widget
+pre_filled_text = "请在此输入需要翻译的内容/Enter contents to be translated here."
+
+# Create the text_input widget with pre-filled text
+text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
+#text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
 
 def text_to_speech(input_language, output_language, text):
     if text is None:
