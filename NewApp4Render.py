@@ -88,13 +88,13 @@ def text_to_speech(input_language, output_language, text, tld):
 st.write("---")
 
 if st.button("只看翻译内容"):
-    output_text = text_to_speech(input_language, output_language, text, tld)
+    output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
     st.write("---")
              
 display_output_text = st.checkbox("听语音（并显示翻译内容）")
 if display_output_text:
-    output_text = text_to_speech(input_language, output_language, text, tld)
+    output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
