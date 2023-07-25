@@ -1,5 +1,28 @@
 import streamlit as st
 
+# Set the title, favicon, page icon, and layout of the webpage or app
+st.set_page_config(
+    page_title="易翻译·EZTranslation - 你的随身翻译助手",
+    page_icon=":rocket:",  # You can use Emoji as the page icon
+    layout="centered",  # You can set the layout to "wide" or "centered"
+)
+
+# HTML and JavaScript code to handle clearing the prefilled content
+clear_prefilled_js = """
+<script>
+function clearPrefilled() {
+    var element = document.getElementById("inputArea");
+    if (element.value == "Prefilled content...") {
+        element.value = "";
+    }
+}
+</script>
+"""
+
+# Display the HTML/JS code
+st.markdown(clear_prefilled_js, unsafe_allow_html=True)
+
+
 # Add custom CSS style to center the title
 st.markdown(
     """
@@ -28,28 +51,6 @@ from googletrans import Translator
 #    os.mkdir("temp")
 #except:
 #    pass
-
-# Set the title, favicon, page icon, and layout of the webpage or app
-st.set_page_config(
-    page_title="易翻译·EZTranslation - 你的随身翻译助手",
-    page_icon=":rocket:",  # You can use Emoji as the page icon
-    layout="centered",  # You can set the layout to "wide" or "centered"
-)
-
-# HTML and JavaScript code to handle clearing the prefilled content
-clear_prefilled_js = """
-<script>
-function clearPrefilled() {
-    var element = document.getElementById("inputArea");
-    if (element.value == "Prefilled content...") {
-        element.value = "";
-    }
-}
-</script>
-"""
-
-# Display the HTML/JS code
-st.markdown(clear_prefilled_js, unsafe_allow_html=True)
 
 st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
