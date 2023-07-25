@@ -98,6 +98,7 @@ if display_output_text:
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
+    st.write("---")
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
     st.write(f" {output_text}")        
 
