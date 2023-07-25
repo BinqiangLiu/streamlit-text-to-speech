@@ -11,6 +11,13 @@ try:
     os.mkdir("temp")
 except:
     pass
+
+# Set the title, favicon, page icon, and layout of the webpage or app
+st.set_page_config(
+    page_title="My Streamlit App",
+    page_icon=":rocket:",  # You can use Emoji as the page icon
+    layout="wide",  # You can set the layout to "wide" or "centered"
+)
     
 st.title("易翻译 | Easy Translation")
 st.write("---")
@@ -26,12 +33,12 @@ in_lang = st.selectbox(
     "请选择待翻译文本的语言",
     ("Chinese", "English", "German", "French", "Japanese", "Korean"),
 )
-if in_lang == "Chinese":
-    input_language = "zh-CN"
+if in_lang == "en":
+    input_language = ""
 #elif in_lang == "Chinese Traditional":
 #    input_language = "zh-TW"
-elif in_lang == "English":
-    input_language = "en"
+elif in_lang == "Chinese":
+    input_language = "zh-CN"
 elif in_lang == "German":
     input_language = "de"
 elif in_lang == "French":
@@ -48,7 +55,7 @@ out_lang = st.selectbox(
 )
 if out_lang == "English":
     output_language = "en"
-elif out_lang == "Chinese Simplified":
+elif out_lang == "Chinese":
     output_language = "zh-CN"
 #elif out_lang == "Chinese Traditional":
 #    output_language = "zh-TW"
