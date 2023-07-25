@@ -18,8 +18,9 @@ st.set_page_config(
     page_icon=":rocket:",  # You can use Emoji as the page icon
     layout="centered",  # You can set the layout to "wide" or "centered"
 )
-    
+
 st.title("易翻译 | Easy Translation")
+st.audio("translationaudio.mp3")
 st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
@@ -105,11 +106,11 @@ def text_to_speech(input_language, output_language, text, tld):
     translation = translator.translate(text, src=input_language, dest=output_language)
     trans_text = translation.text
     tts = gTTS(trans_text, lang=output_language, tld=tld, slow=False)
-    try:
-        my_file_name = text[0:20]
-    except:
-        my_file_name = "audio"
-    tts.save(f"translationaudio.mp3")
+#    try:
+#        my_file_name = text[0:20]
+#    except:
+#        my_file_name = "audio"
+    tts.save("translationaudio.mp3")
     return my_file_name, trans_text
 
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
@@ -125,7 +126,7 @@ if st.button("只看翻译内容"):
 display_output_text = st.checkbox("听语音（并显示翻译内容）")
 if display_output_text:
     result, output_text = text_to_speech(input_language, output_language, text, tld)
-    audio_file = open(f"translationaudio.mp3", "rb")
+    audio_file = open("translationaudio.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
     st.write(f" {output_text}")        
