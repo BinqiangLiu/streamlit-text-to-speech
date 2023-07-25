@@ -1,4 +1,5 @@
 import streamlit as st
+
 # Add custom CSS style to center the title
 st.markdown(
     """
@@ -14,8 +15,6 @@ st.markdown(
 
 # Set the title and other configurations
 st.title("易翻译 | Easy Translation")
-
-
 
 import os
 import time
@@ -104,7 +103,7 @@ st.write("---")
 pre_filled_text = "请在此输入需要翻译的内容/Enter contents to be translated here."
 
 # Text input with pre-filled content
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text on_change="clearPrefilled()", key="inputArea")
+text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text, on_change="clearPrefilled()", key="inputArea")
 #text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
 #text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
 
