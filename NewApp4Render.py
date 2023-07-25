@@ -26,8 +26,6 @@ st.write("---")
 
 translator = Translator()
 
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
-
 st.write("---")
 in_lang = st.selectbox(
     "请选择待翻译文本的语言",
@@ -91,7 +89,8 @@ def text_to_speech(input_language, output_language, text):
 #    st.write("---")
 
 display_output_text = st.checkbox("听语音（并显示翻译结果）")             
-if st.write("翻译结果"):
+if text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）"):
+    st.write("翻译结果")
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}") 
 elif display_output_text:
