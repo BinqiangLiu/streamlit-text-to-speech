@@ -135,9 +135,8 @@ elif display_output_text:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
-    st.audio("translationresult.mp3", format="audio/mp3")
+    st.audio("translationresult.mp3")
     st.write(f" {output_text}")
-
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
