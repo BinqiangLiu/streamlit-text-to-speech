@@ -70,15 +70,25 @@ st.write("---")
 text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
 
 def text_to_speech(input_language, output_language, text):
-    translation = translator.translate(text, src=input_language, dest=output_language)
-    trans_text = translation.text
-    tts = gTTS(trans_text, lang=output_language, slow=False)
+    if text is None:
+        return ""  # Return an empty string if text is None
+    else:
+        translation = translator.translate(text, src=input_language, dest=output_language)
+        trans_text = translation.text
+        tts = gTTS(trans_text, lang=output_language, slow=False)
+        tts.save("translationresult.mp3")
+        return trans_text
+
+#def text_to_speech(input_language, output_language, text):
+#    translation = translator.translate(text, src=input_language, dest=output_language)
+#    trans_text = translation.text
+#    tts = gTTS(trans_text, lang=output_language, slow=False)
 #    try:
 #        my_file_name = text[0:20]
 #    except:
 #        my_file_name = "audio"
-    tts.save("translationresult.mp3")
-    return trans_text
+#    tts.save("translationresult.mp3")
+#    return trans_text
 
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
