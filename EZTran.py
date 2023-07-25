@@ -93,7 +93,7 @@ else:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
 
-display_output_text = st.checkbox("语音播放翻译结果）")
+display_output_text = st.checkbox("语音播放翻译结果")
 if display_output_text:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
