@@ -92,11 +92,11 @@ def text_to_speech(input_language, output_language, text, tld):
 
 if st.button("开始翻译并显示"): 
     result, output_text = text_to_speech(input_language, output_language, text, tld)
-    audio_file = open(f"temp/{result}.mp3", "rb")
+#    audio_file = open(f"temp/{result}.mp3", "rb")
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
     st.write(f" {output_text}")
-
     if st.button("语音播放翻译内容"):    
+        audio_file = open(f"temp/{result}.mp3", "rb")        
         audio_bytes = audio_file.read()
         text = st.text_input("请点击播放按钮播放翻译内容语音")
 #    st.markdown(f"## 请点击下方播放按钮收听TTS语音：")
