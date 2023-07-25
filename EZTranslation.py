@@ -99,8 +99,8 @@ if text is not None:
         audio_file = open("translationresult.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mp3")
-elif:
-    st.write("请在上方输入框中输入您需要翻译的内容")      
+else:
+    st.write("请在上方输入框中输入您需要翻译的内容")
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
