@@ -13,11 +13,15 @@ except:
     pass
     
 st.title("易翻译 | Easy Translation")
+st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
+
 translator = Translator()
 
 text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
+
+st.write("---")
 in_lang = st.selectbox(
     "请选择待翻译文本的语言",
     ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
@@ -30,7 +34,7 @@ elif in_lang == "Chinese Traditional":
     input_language = "zh-TW"
 elif in_lang == "Japanese":
     input_language = "ja"
-
+st.write("---")
 out_lang = st.selectbox(
     "请选择文本翻译目标语言",
     ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
@@ -43,7 +47,7 @@ elif out_lang == "Chinese Traditional":
     output_language = "zh-TW"
 elif out_lang == "Japanese":
     output_language = "ja"
-
+st.write("---")
 english_accent = st.selectbox(
     "请选择英文风格（当目标语言为英文时）",
     (
@@ -89,18 +93,20 @@ def text_to_speech(input_language, output_language, text, tld):
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
-
-if st.button("开始翻译并显示"): 
+st.write("---")
+while st.button("开始翻译并显示"): 
     result, output_text = text_to_speech(input_language, output_language, text, tld)
-#    audio_file = open(f"temp/{result}.mp3", "rb")
+    audio_file = open(f"temp/{result}.mp3", "rb")
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
     st.write(f" {output_text}")
+    st.write("---")
     if st.button("语音播放翻译内容"):
 #下面的open这行代码必须在这个if框架内，否则st.audio点击后就消失了！之前显示的翻译内容也会消失！        
-#有没有可能result, output_text = text_to_speech(input_language, output_language, text, tld)也需要在这里重复？
-        audio_file = open(f"temp/{result}.mp3", "rb")        
+#result, output_text = text_to_speech(input_language, output_language, text, tld)
+#        audio_file = open(f"temp/{result}.mp3", "rb")        
         audio_bytes = audio_file.read()
         text = st.text_input("请点击播放按钮播放翻译内容语音")
+        st.write(f" {output_text}")
 #    st.markdown(f"## 请点击下方播放按钮收听TTS语音：")
         st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
