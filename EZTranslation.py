@@ -19,7 +19,22 @@ st.set_page_config(
     layout="centered",  # You can set the layout to "wide" or "centered"
 )
 
+# Add custom CSS style to center the title
+st.markdown(
+    """
+    <style>
+    /* Center the title */
+    .title-wrapper {
+        text-align: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Set the title and other configurations
 st.title("易翻译 | Easy Translation")
+
 st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
