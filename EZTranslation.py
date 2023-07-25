@@ -26,7 +26,6 @@ st.write("---")
 
 translator = Translator()
 
-st.write("---")
 in_lang = st.selectbox(
     "请选择待翻译文本的语言",
     ("Chinese", "English", "German", "French", "Japanese", "Korean"),
@@ -99,6 +98,7 @@ if text is not None:
         audio_file = open("translationresult.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mp3")
+        st.write(f" {output_text}")
 else:
     st.write("请在上方输入框中输入您需要翻译的内容")
  
