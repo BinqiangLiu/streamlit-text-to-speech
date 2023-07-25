@@ -83,7 +83,7 @@ elif out_lang == "Korea":
 st.write("---")
 
 # Pre-filled text for the text_input widget
-pre_filled_text = "请在此输入需要翻译的内容/Enter contents to be translated here."
+pre_filled_text = "Hi"
 
 # Create the text_input widget with pre-filled text
 text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
@@ -127,7 +127,7 @@ else:
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
 
-display_output_text = st.checkbox("语音播放翻译结果）")
+display_output_text = st.checkbox("语音播放翻译结果")
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
