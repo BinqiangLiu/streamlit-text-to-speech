@@ -94,7 +94,7 @@ if st.button("只看翻译内容"):
              
 display_output_text = st.checkbox("听语音（并显示翻译内容）")
 if display_output_text:
-#    output_text = text_to_speech(input_language, output_language, text, tld)
+    output_text = text_to_speech(input_language, output_language, text, tld)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
