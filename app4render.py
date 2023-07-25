@@ -24,37 +24,52 @@ text = st.text_input("输入需要翻译的内容（注意：文本中请不要�
 st.write("---")
 in_lang = st.selectbox(
     "请选择待翻译文本的语言",
-    ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
+    ("Chinese", "English", "German", "French", "Japanese", "Korean"),
 )
-if in_lang == "English":
+if in_lang == "Chinese Simplified":
+    input_language = "zh-CN"
+#elif in_lang == "Chinese Traditional":
+#    input_language = "zh-TW"
+elif in_lang == "English":
     input_language = "en"
-elif in_lang == "Chinese Simplified":
-    input_language = "zh-cn"
-elif in_lang == "Chinese Traditional":
-    input_language = "zh-TW"
+elif in_lang == "German":
+    input_language = "de"
+elif in_lang == "French":
+    input_language = "fr"
 elif in_lang == "Japanese":
     input_language = "ja"
+elif in_lang == "Korean":
+    input_language = "kr"
+
 st.write("---")
 out_lang = st.selectbox(
     "请选择文本翻译目标语言",
-    ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
+    ("English", "Chinese", "German", "French", "Japanese", "Korean"),
 )
 if out_lang == "English":
     output_language = "en"
 elif out_lang == "Chinese Simplified":
     output_language = "zh-CN"
-elif out_lang == "Chinese Traditional":
-    output_language = "zh-TW"
+#elif out_lang == "Chinese Traditional":
+#    output_language = "zh-TW"
+elif out_lang == "German":
+    output_language = "de"
+elif out_lang == "French":
+    output_language = "fr"
 elif out_lang == "Japanese":
     output_language = "ja"
+elif out_lang == "Korea":
+    output_language = "kr"
+
 st.write("---")
+
 english_accent = st.selectbox(
     "请选择英文风格（当目标语言为英文时）",
     (
         "Default",
-        "India",
-        "United Kingdom",
         "United States",
+        "United Kingdom",
+        "India",
         "Canada",
         "Australia",
         "Ireland",
@@ -94,23 +109,19 @@ def text_to_speech(input_language, output_language, text, tld):
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
 st.write("---")
-while st.button("开始翻译并显示", key="button1"):
-#while st.button("开始翻译并显示"): 
+
+if st.button("开始翻译并显示"):
     result, output_text = text_to_speech(input_language, output_language, text, tld)
-    audio_file = open(f"temp/{result}.mp3", "rb")
-#    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
     st.write(f" {output_text}")
     st.write("---")
-    if st.button("语音播放翻译内容", key="button2"):
-#    if st.button("语音播放翻译内容"):
-#下面的open这行代码必须在这个if框架内，否则st.audio点击后就消失了！之前显示的翻译内容也会消失！        
-#result, output_text = text_to_speech(input_language, output_language, text, tld)
-#        audio_file = open(f"temp/{result}.mp3", "rb")        
-        audio_bytes = audio_file.read()
-        text = st.text_input("请点击播放按钮播放翻译内容语音")
-        st.write(f" {output_text}")
-#    st.markdown(f"## 请点击下方播放按钮收听TTS语音：")
-        st.audio(audio_bytes, format="audio/mp3", start_time=0)
+             
+display_output_text = st.checkbox("语音播放翻译内容")
+if display_output_text:
+    result, output_text = text_to_speech(input_language, output_language, text, tld)
+    audio_file = open(f"temp/{result}.mp3", "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format="audio/mp3", start_time=0)
+    st.write(f" {output_text}")        
 
 def remove_files(n):
     mp3_files = glob.glob("temp/*mp3")
