@@ -26,8 +26,6 @@ st.write("---")
 
 translator = Translator()
 
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
-
 st.write("---")
 in_lang = st.selectbox(
     "请选择待翻译文本的语言",
@@ -70,6 +68,8 @@ elif out_lang == "Korea":
 
 st.write("---")
 
+text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
+
 def text_to_speech(input_language, output_language, text):
     translation = translator.translate(text, src=input_language, dest=output_language)
     trans_text = translation.text
@@ -99,17 +99,8 @@ if text is not None:
         audio_file = open("translationresult.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mp3")
-        
-if  text is not None:
-    st.write("翻译结果")   
-    output_text = text_to_speech(input_language, output_language, text)
-    st.write(f" {output_text}")    
-elif display_output_text and text is not None:
-    output_text = text_to_speech(input_language, output_language, text)
-    audio_file = open("translationresult.mp3", "rb")
-    audio_bytes = audio_file.read()
-    st.audio("translationresult.mp3")
-    st.write(f" {output_text}")        
+elif st.write("请在上方输入框中输入您需要翻译的内容")      
+ 
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
