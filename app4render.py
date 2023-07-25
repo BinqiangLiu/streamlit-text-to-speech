@@ -95,7 +95,9 @@ if st.button("开始翻译并显示"):
 #    audio_file = open(f"temp/{result}.mp3", "rb")
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
     st.write(f" {output_text}")
-    if st.button("语音播放翻译内容"):    
+    if st.button("语音播放翻译内容"):
+#下面的open这行代码必须在这个if框架内，否则st.audio点击后就消失了！之前显示的翻译内容也会消失！        
+#有没有可能result, output_text = text_to_speech(input_language, output_language, text, tld)也需要在这里重复？
         audio_file = open(f"temp/{result}.mp3", "rb")        
         audio_bytes = audio_file.read()
         text = st.text_input("请点击播放按钮播放翻译内容语音")
