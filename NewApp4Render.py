@@ -99,8 +99,7 @@ if display_output_text:
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
     st.write(f" {output_text}")        
-elif 
-    st.write("翻译结果")   
+elif st.write("翻译结果")   
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")    
 
