@@ -26,7 +26,7 @@ in_lang = st.selectbox(
     "请选择待翻译文本的语言",
     ("Chinese", "English", "German", "French", "Japanese", "Korean"),
 )
-if in_lang == "Chinese Simplified":
+if in_lang == "Chinese":
     input_language = "zh-CN"
 #elif in_lang == "Chinese Traditional":
 #    input_language = "zh-TW"
