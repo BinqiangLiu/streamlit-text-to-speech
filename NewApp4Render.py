@@ -20,7 +20,6 @@ st.set_page_config(
 )
 
 st.title("易翻译 | Easy Translation")
-st.audio("translationaudio.mp3")
 st.write("---")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
@@ -85,12 +84,16 @@ def text_to_speech(input_language, output_language, text):
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
+
+st.write("---翻译结果---")
+output_text = text_to_speech(input_language, output_language, text)
+st.write(f" {output_text}")
 st.write("---")
 
-if st.button("只看翻译内容"):
-    output_text = text_to_speech(input_language, output_language, text)
-    st.write(f" {output_text}")
-    st.write("---")
+#if st.button("查看翻译结果"):
+#    output_text = text_to_speech(input_language, output_language, text)
+#    st.write(f" {output_text}")
+#    st.write("---")
              
 display_output_text = st.checkbox("听语音（并显示翻译内容）")
 if display_output_text:
