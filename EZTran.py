@@ -19,25 +19,10 @@ st.set_page_config(
     layout="centered",  # You can set the layout to "wide" or "centered"
 )
 
-# Add custom CSS style to center the title
-st.markdown(
-    """
-    <style>
-    /* Center the title */
-    .title-wrapper {
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Set the title and other configurations
 st.title("易翻译 | Easy Translation")
 
 st.write("---")
-#st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
-#text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 
 translator = Translator()
 
@@ -86,12 +71,13 @@ st.write("---")
 pre_filled_text = "Hi"
 
 # Create the text_input widget with pre-filled text
-text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）", value=pre_filled_text)
-#text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
+text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
+tips_text = "请在上方输入框中输入需要翻译的内容"
 
 def text_to_speech(input_language, output_language, text):
     if text is None:
-        return "请在上方输入框中输入需要翻译的内容"  # Return an empty string if text is None
+        trans_text = tips_text
+        return trans_text
     else:
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
@@ -99,44 +85,24 @@ def text_to_speech(input_language, output_language, text):
         tts.save("translationresult.mp3")
         return trans_text
 
-#def text_to_speech(input_language, output_language, text):
-#    translation = translator.translate(text, src=input_language, dest=output_language)
-#    trans_text = translation.text
-#    tts = gTTS(trans_text, lang=output_language, slow=False)
-#    try:
-#        my_file_name = text[0:20]
-#    except:
-#        my_file_name = "audio"
-#    tts.save("translationresult.mp3")
-#    return trans_text
-
-#if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
-#    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
-#    st.write(f" {output_text}")
-
-#if st.button("查看翻译结果"):
-#    output_text = text_to_speech(input_language, output_language, text)
-#    st.write(f" {output_text}")
-#    st.write("---")
-
-if text is None:
-    st.write("请在上方输入框中输入需要翻译的内容")
-    st.stop()
-else:
+if text is not None:
     st.write("翻译结果")
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
-
-display_output_text = st.checkbox("语音播放翻译结果）")
-if text is None:
+else:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
-elif display_output_text:
+
+display_output_text = st.checkbox("语音播放翻译结果）")
+if display_output_text:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
 #    st.write(f" {output_text}")
+#if text is None:
+#    st.write("请在上方输入框中输入需要翻译的内容")
+#    st.stop()
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
