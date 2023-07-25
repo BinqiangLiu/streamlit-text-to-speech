@@ -14,9 +14,9 @@ except:
 
 # Set the title, favicon, page icon, and layout of the webpage or app
 st.set_page_config(
-    page_title="My Streamlit App",
+    page_title="易翻译·EZTranslation - 你的随身翻译助手",
     page_icon=":rocket:",  # You can use Emoji as the page icon
-    layout="wide",  # You can set the layout to "wide" or "centered"
+    layout="centered",  # You can set the layout to "wide" or "centered"
 )
     
 st.title("易翻译 | Easy Translation")
