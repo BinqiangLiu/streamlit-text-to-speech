@@ -85,11 +85,6 @@ def text_to_speech(input_language, output_language, text):
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
 
-st.write("---翻译结果---")
-output_text = text_to_speech(input_language, output_language, text)
-st.write(f" {output_text}")
-st.write("---")
-
 #if st.button("查看翻译结果"):
 #    output_text = text_to_speech(input_language, output_language, text)
 #    st.write(f" {output_text}")
@@ -104,6 +99,9 @@ if display_output_text:
     st.write("---")
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
     st.write(f" {output_text}")        
+elif 
+    output_text = text_to_speech(input_language, output_language, text)
+    st.write(f" {output_text}")    
 
 #os.remove(f"translationaudio.mp3")
 
