@@ -103,5 +103,3 @@ if st.button("语音播放翻译内容"):
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
 remove_files(7)
-
-
