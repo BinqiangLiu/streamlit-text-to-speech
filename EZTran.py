@@ -62,7 +62,7 @@ elif out_lang == "French":
     output_language = "fr"
 elif out_lang == "Japanese":
     output_language = "ja"
-elif out_lang == "Korea":
+elif out_lang == "Korean":
     output_language = "kr"
 
 st.write("---")
