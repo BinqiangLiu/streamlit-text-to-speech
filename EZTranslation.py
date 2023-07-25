@@ -122,21 +122,22 @@ def text_to_speech(input_language, output_language, text):
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
-else:
+elif:
     st.write("翻译结果")
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
 
-display_output_text = st.checkbox("语音播放翻译结果")
-if text is None:
+display_output_text = st.checkbox("语音播放翻译结果")    
+if display_output_text:
+    if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
-elif display_output_text:
+else:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
     st.audio("translationresult.mp3")
-#    st.write(f" {output_text}")
+    st.write(f" {output_text}")
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
