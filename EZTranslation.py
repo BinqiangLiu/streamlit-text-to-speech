@@ -121,7 +121,8 @@ def text_to_speech(input_language, output_language, text):
 
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
-elif
+    st.stop()
+else:
     st.write("翻译结果")
     output_text = text_to_speech(input_language, output_language, text)
     st.write(f" {output_text}")
@@ -129,6 +130,7 @@ elif
 display_output_text = st.checkbox("听语音（并显示翻译结果）")
 if text is None:
     st.write("请在上方输入框中输入需要翻译的内容")
+    st.stop()
 elif display_output_text:
     output_text = text_to_speech(input_language, output_language, text)
     audio_file = open("translationresult.mp3", "rb")
