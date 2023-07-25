@@ -1,6 +1,6 @@
 streamlit
 gTTS
-googletrans
+googletrans==3.1.0a0
 #如果遇到AttributeError: 'NoneType' object has no attribute 'group'问题，则很可能是因为googletrans版本问题（需要高于指定版本3.1.0a0）
 #因为Render的缘故，增加以下两项：
 #protobuf==3.20
