@@ -86,21 +86,21 @@ def text_to_speech(input_language, output_language, text, tld):
     tts.save(f"temp/{my_file_name}.mp3")
     return my_file_name, trans_text
 
-if st.button("开始翻译并显示"): 
-    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
-    st.write(f" {output_text}")
-
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
 #    st.write(f" {output_text}")
 
-if st.button("语音播放翻译内容"): 
+if st.button("开始翻译并显示"): 
     result, output_text = text_to_speech(input_language, output_language, text, tld)
     audio_file = open(f"temp/{result}.mp3", "rb")
-    audio_bytes = audio_file.read()
-    text = st.text_input("请点击播放按钮播放翻译内容语音")
+#    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
+    st.write(f" {output_text}")
+
+    if st.button("语音播放翻译内容"):    
+        audio_bytes = audio_file.read()
+        text = st.text_input("请点击播放按钮播放翻译内容语音")
 #    st.markdown(f"## 请点击下方播放按钮收听TTS语音：")
-    st.audio(audio_bytes, format="audio/mp3", start_time=0)
+        st.audio(audio_bytes, format="audio/mp3", start_time=0)
 
 def remove_files(n):
     mp3_files = glob.glob("temp/*mp3")
