@@ -71,37 +71,6 @@ elif out_lang == "Korea":
 
 st.write("---")
 
-english_accent = st.selectbox(
-    "请选择英文风格（当目标语言为英文时）",
-    (
-        "Default",
-        "United States",
-        "United Kingdom",
-        "India",
-        "Canada",
-        "Australia",
-        "Ireland",
-        "South Africa",
-    ),
-)
-
-if english_accent == "Default":
-    tld = "com"
-elif english_accent == "India":
-    tld = "co.in"
-elif english_accent == "United Kingdom":
-    tld = "co.uk"
-elif english_accent == "United States":
-    tld = "com"
-elif english_accent == "Canada":
-    tld = "ca"
-elif english_accent == "Australia":
-    tld = "com.au"
-elif english_accent == "Ireland":
-    tld = "ie"
-elif english_accent == "South Africa":
-    tld = "co.za"
-
 def text_to_speech(input_language, output_language, text, tld):
     translation = translator.translate(text, src=input_language, dest=output_language)
     trans_text = translation.text
@@ -110,8 +79,8 @@ def text_to_speech(input_language, output_language, text, tld):
 #        my_file_name = text[0:20]
 #    except:
 #        my_file_name = "audio"
-    tts.save("translationaudio.mp3")
-    return my_file_name, trans_text
+    tts.save("translationresult.mp3")
+    return trans_text
 
 #if display_output_text = st.checkbox("显示翻译文本（选择后会在语音播放翻译文本的同时显示翻译后的文本）")    
 #    st.markdown(f"## 输出的翻译文本（与收听的TTS语音相应）:")
@@ -119,15 +88,16 @@ def text_to_speech(input_language, output_language, text, tld):
 st.write("---")
 
 if st.button("只看翻译内容"):
-    result, output_text = text_to_speech(input_language, output_language, text, tld)
+    output_text = text_to_speech(input_language, output_language, text, tld)
     st.write(f" {output_text}")
     st.write("---")
              
 display_output_text = st.checkbox("听语音（并显示翻译内容）")
 if display_output_text:
-    result, output_text = text_to_speech(input_language, output_language, text, tld)
-    audio_file = open("translationaudio.mp3", "rb")
+#    output_text = text_to_speech(input_language, output_language, text, tld)
+    audio_file = open("translationresult.mp3", "rb")
     audio_bytes = audio_file.read()
+    st.audio"translationresult.mp3")
     st.audio(audio_bytes, format="audio/mp3", start_time=0)
     st.write(f" {output_text}")        
 
