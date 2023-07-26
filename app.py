@@ -19,7 +19,8 @@ translator = Translator()
 
 #text = st.text_input("输入需要翻译的内容（注意：输入的文本中不可以包括符号/）", placeholder="INPUT HERE")
 #text = st.text_input('Movie title', placeholder="INPUT HERE")
-text = st.text_area('Movie title', placeholder="INPUT HERE")
+#text = st.text_area('Movie title', placeholder="INPUT HERE")
+text =st.text_input('Movie title', value="", placeholder="Placeholder", disabled=False, label_visibility="visible")
 in_lang = st.selectbox(
     "请选择输入语言",
     ("English", "Hindi", "Bengali", "korean", "Chinese Simplified", "Chinese Traditional", "Japanese"),
