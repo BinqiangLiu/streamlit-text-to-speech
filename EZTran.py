@@ -78,15 +78,15 @@ text = st.text_input(label="输入需要翻译的内容", value="", placeholder=
 tips_text = "请在上方输入框中输入需要翻译的内容"
 
 def text_to_speech(input_language, output_language, text):
-    if text is not None:
+    try:
+        translator = Translator()
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
-        tts = gTTS(trans_text, lang=output_language, slow=False)
-        tts.save("translationresult.mp3")
         return trans_text
-    else:
-        trans_text = tips_text
-        return trans_text
+    except Exception as e:
+        # Handle the error, e.g., print an error message or return a default text
+        print(f"Translation error: {e}")
+        return "请先输入需要翻译的内容Enter contents to translate first"
 
 if text is not None:
     st.write("翻译结果")
