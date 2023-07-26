@@ -72,7 +72,7 @@ tips_text = "请在上方输入框中输入需要翻译的内容"
 translator = Translator()
 placeholder = st.empty()
 
-text = placeholder.text_input(label="输入需要翻译的内容（请务必先输入要翻译的内容再查看翻译或播放语音）", value="", placeholder='在此输入Enter here', key=1)
+text = placeholder.text_input(label="第三步：输入需要翻译的内容（请务必先输入要翻译的内容再查看翻译或播放语音）", value="", placeholder='在此输入Enter here', key=1)
 
 display_output_text = st.checkbox("语音播放翻译结果")
 
@@ -89,7 +89,7 @@ def text_to_speech(input_language, output_language, text):
     except Exception as e:
         # Handle the error, e.g., print an error message or return a default text
         print(f"Translation error: {e}")
-        return "要翻译内容为空"
+        return "提示：要翻译内容为空"
         st.stop()
 
 if text is None:
@@ -103,7 +103,7 @@ else:
         st.write("请在上方输入框中输入需要翻译的内容")
         st.stop()
     if click_clear:
-        text = placeholder.text_input(label="输入需要翻译的内容（请务必先输入要翻译的内容再查看翻译或播放语音）", value="", placeholder='在此输入Enter here', key=2)
+        text = placeholder.text_input(label="第三步：输入需要翻译的内容（请务必先输入要翻译的内容再查看翻译或播放语音）", value="", placeholder='在此输入Enter here', key=2)
         st.stop()
 
     if display_output_text:
