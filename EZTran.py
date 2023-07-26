@@ -77,14 +77,14 @@ text = st.text_input(label="输入需要翻译的内容", value="易翻译EasyTr
 tips_text = "请在上方输入框中输入需要翻译的内容"
 
 def text_to_speech(input_language, output_language, text):
-    if text is None:
-        trans_text = tips_text
-        return trans_text
-    else:
+    if text is not None:
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
         tts = gTTS(trans_text, lang=output_language, slow=False)
         tts.save("translationresult.mp3")
+        return trans_text
+    else:
+        trans_text = tips_text
         return trans_text
 
 if text is not None:
