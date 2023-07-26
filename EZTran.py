@@ -25,7 +25,7 @@ st.title("易翻译 | Easy Translation")
 st.write("---")
 
 in_lang = st.selectbox(
-    "请选择待翻译文本的语言",
+    "第一步：选择翻译内容源语言",
     ("Chinese", "English", "German", "French", "Japanese", "Korean"),
 )
 if in_lang == "Chinese":
@@ -45,7 +45,7 @@ elif in_lang == "Korean":
 
 st.write("---")
 out_lang = st.selectbox(
-    "请选择文本翻译目标语言",
+    "第二步：选择目标翻译语言",
     ("English", "Chinese", "German", "French", "Japanese", "Korean"),
 )
 if out_lang == "English":
@@ -114,6 +114,5 @@ else:
             st.audio("translationresult.mp3")
         except Exception as e:
             # Handle the error, e.g., print an error message or return a default text
-            print(f"Translation error: {e}")
-            st.write("要翻译内容为空")
+            print(f"Translation error: {e}")            
             st.stop()
