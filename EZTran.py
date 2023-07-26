@@ -71,7 +71,9 @@ st.write("---")
 pre_filled_text = "Hi"
 
 # Create the text_input widget with pre-filled text
-text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
+#text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
+text = st.text_input(label='Enter your text:', value="", placeholder='Type here...')
+
 tips_text = "请在上方输入框中输入需要翻译的内容"
 
 def text_to_speech(input_language, output_language, text):
