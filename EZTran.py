@@ -96,7 +96,9 @@ if text is None:
     st.stop()
 else: 
     if text is not None:
-        st.write("翻译结果")
+        st.write("【待翻译内容】")
+        st.write(text)
+        st.write("【翻译结果】")
         output_text = text_to_speech(input_language, output_language, text)
         st.write(f" {output_text}")
     else:
