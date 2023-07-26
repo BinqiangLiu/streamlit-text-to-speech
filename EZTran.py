@@ -72,7 +72,7 @@ st.write("---")
 
 # Create the text_input widget with pre-filled text
 #text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
-text = st.text_input(label="输入需要翻译的内容", value="", placeholder='Enter here')
+text = st.text_input(label="输入需要翻译的内容", value="易翻译EasyTransation", placeholder='在此输入Enter here')
 
 tips_text = "请在上方输入框中输入需要翻译的内容"
 
