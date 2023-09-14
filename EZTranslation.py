@@ -11,12 +11,21 @@ from googletrans import Translator
 #except:
 #    pass
 
-# Set the title, favicon, page icon, and layout of the webpage or app
+# Set the title, favicon, page icon, and layout of the webpage or app and other configurations
 st.set_page_config(
     page_title="易翻译·EZTranslation - 你的随身翻译助手",
     page_icon=":rocket:",  # You can use Emoji as the page icon
-    layout="centered",  # You can set the layout to "wide" or "centered"
+    layout="wide",  # You can set the layout to "wide" or "centered"
 )
+st.title("易翻译 | Easy Translation")
+st.write("---")
+#st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
+#text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
+st.subheader("易翻译 | Easy Translation")
+
+css_file = "main.css"
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 # Add custom CSS style to center the title
 st.markdown(
@@ -30,13 +39,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-# Set the title and other configurations
-st.title("易翻译 | Easy Translation")
-
-st.write("---")
-#st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
-#text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 
 translator = Translator()
 
