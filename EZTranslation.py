@@ -139,7 +139,7 @@ if display_output_text:
         audio_file = open("translationresult.mp3", "rb")
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format="audio/mp3")
-        st.write(f" {output_text}")
+#        st.write(f" {output_text}")
  
 #    在手机端，下面这行代码会导致错误（手机上无法播放）
 #    st.audio(audio_bytes, format="audio/mp3", start_time=0)
