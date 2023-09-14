@@ -90,9 +90,8 @@ text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
 
 def text_to_speech(input_language, output_language, text):
     if text is None:
-        st.stop()
-        #st.write()
-        #return "请在上方输入框中输入需要翻译的内容"  # Return an empty string if text is None
+#        st.stop()
+        print("Input empty.")        
     else:
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
@@ -122,7 +121,8 @@ def text_to_speech(input_language, output_language, text):
 
 if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
 #    st.write("请在上方输入框中输入需要翻译的内容")
-    st.stop()
+#    st.stop()
+    print("Input empty.")
 else:
     st.write("翻译结果")
     output_text = text_to_speech(input_language, output_language, text)
@@ -132,7 +132,8 @@ display_output_text = st.checkbox("语音播放翻译结果")
 if display_output_text:
     if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
 #        st.write("请在上方输入框中输入需要翻译的内容")
-        st.stop()
+#        st.stop()
+         print("Input empty.")
     else:
         output_text = text_to_speech(input_language, output_language, text)
         audio_file = open("translationresult.mp3", "rb")
@@ -154,5 +155,4 @@ if display_output_text:
 #            if os.stat(f).st_mtime < now - n_days:
 #                os.remove(f)
 #                print("Deleted ", f)
-
 #remove_files(7)
