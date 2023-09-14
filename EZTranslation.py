@@ -121,7 +121,7 @@ def text_to_speech(input_language, output_language, text):
 #    st.write(f" {output_text}")
 #    st.write("---")
 
-if text ="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
+if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
 else:
@@ -131,7 +131,7 @@ else:
 
 display_output_text = st.checkbox("语音播放翻译结果")    
 if display_output_text:
-    if text ="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
+    if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
     else:
