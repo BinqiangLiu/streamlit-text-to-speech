@@ -2,8 +2,7 @@ import streamlit as st
 import os
 import time
 import glob
-import os
-
+import sys
 from gtts import gTTS
 from googletrans import Translator
 
@@ -86,7 +85,7 @@ st.write("---")
 pre_filled_text = "Hi"
 
 # Create the text_input widget with pre-filled text
-text = st.text_input("输入需要翻译的内容）", value=pre_filled_text)
+text = st.text_input("输入需要翻译的内容", value=pre_filled_text)
 #text = st.text_input("输入需要翻译的内容（注意：文本中请不要包括/等特殊符号）")
 
 def text_to_speech(input_language, output_language, text):
@@ -122,7 +121,7 @@ def text_to_speech(input_language, output_language, text):
 #    st.write("---")
 
 if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
-    st.write("请在上方输入框中输入需要翻译的内容")
+#    st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
 else:
     st.write("翻译结果")
@@ -132,7 +131,7 @@ else:
 display_output_text = st.checkbox("语音播放翻译结果")    
 if display_output_text:
     if text =="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
-        st.write("请在上方输入框中输入需要翻译的内容")
+#        st.write("请在上方输入框中输入需要翻译的内容")
         st.stop()
     else:
         output_text = text_to_speech(input_language, output_language, text)
