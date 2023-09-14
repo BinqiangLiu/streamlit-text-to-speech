@@ -91,7 +91,9 @@ text = st.text_input("输入需要翻译的内容）", value=pre_filled_text)
 
 def text_to_speech(input_language, output_language, text):
     if text is None:
-        return "请在上方输入框中输入需要翻译的内容"  # Return an empty string if text is None
+        st.stop()
+        #st.write()
+        #return "请在上方输入框中输入需要翻译的内容"  # Return an empty string if text is None
     else:
         translation = translator.translate(text, src=input_language, dest=output_language)
         trans_text = translation.text
@@ -119,7 +121,7 @@ def text_to_speech(input_language, output_language, text):
 #    st.write(f" {output_text}")
 #    st.write("---")
 
-if text is None:
+if text ="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
     st.write("请在上方输入框中输入需要翻译的内容")
     st.stop()
 else:
@@ -129,9 +131,9 @@ else:
 
 display_output_text = st.checkbox("语音播放翻译结果")    
 if display_output_text:
-    if text is None:
-        st.write("请在上方输入框中输入需要翻译的内容")
-        st.stop()
+    if text ="" or text.strip().isspace() or text == "" or text.strip() == ""  or text.isspace():
+    st.write("请在上方输入框中输入需要翻译的内容")
+    st.stop()
     else:
         output_text = text_to_speech(input_language, output_language, text)
         audio_file = open("translationresult.mp3", "rb")
