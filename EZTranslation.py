@@ -26,19 +26,6 @@ st.write("---")
 css_file = "main.css"
 with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
-    
-# Add custom CSS style to center the title
-st.markdown(
-    """
-    <style>
-    /* Center the title */
-    .title-wrapper {
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 translator = Translator()
 
