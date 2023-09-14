@@ -23,9 +23,6 @@ st.write("---")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 st.subheader("易翻译 | Easy Translation")
 
-css_file = "main.css"
-with open(css_file) as f:
-    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 # Add custom CSS style to center the title
 st.markdown(
