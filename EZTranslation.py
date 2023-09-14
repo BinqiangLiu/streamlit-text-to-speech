@@ -17,11 +17,11 @@ st.set_page_config(
     page_icon=":rocket:",  # You can use Emoji as the page icon
     layout="wide",  # You can set the layout to "wide" or "centered"
 )
-st.title("易翻译 | Easy Translation")
-st.write("---")
+#st.title("易翻译 | Easy Translation")
 #st.markdown(f"## 【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 #text = st.text_input("【输入的文本中不可以包括符号【/等文件命名不允许的字符】，因为涉及【f+temp+/+my_file_name.mp3文件命名】")
 st.subheader("易翻译 | Easy Translation")
+st.write("---")
 
 css_file = "main.css"
 with open(css_file) as f:
